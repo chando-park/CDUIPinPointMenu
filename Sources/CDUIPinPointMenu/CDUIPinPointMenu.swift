@@ -132,7 +132,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         self.pinPointMenuTapped?(tag)
     }
     
-    func showAndSpread(){
+    public func showAndSpread(){
         UIView.animate(withDuration: 0.3, animations: {
             self.frame.origin.y = self.initPosition.y - 20
         }) { _ in
@@ -143,7 +143,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         }
     }
     
-    func show(){
+    public func show(){
         UIView.animate(withDuration: 0.3, animations: {
             self.frame.origin.y = self.initPosition.y - 20
         }) { _ in
@@ -153,7 +153,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         }
     }
     
-    func hide(){
+    public func hide(){
         func r_down() {
             UIView.animate(withDuration: 0.3, animations: {
                 self.frame.origin.y = self.initPosition.y + self.circleSize.height * 2
@@ -210,7 +210,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         })
     }
     
-    func spread(duration: Double = 0.4){
+    public func spread(duration: Double = 0.4){
         
         if self.isAnimating {
             return
@@ -230,7 +230,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         }
     }
     
-    func recover(){
+    public func recover(){
         
         if self.isAnimating {
             return
@@ -264,11 +264,11 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
     }
     
     
-    func setPinPointMenuTapped(closure: @escaping (_ tag: T?)->()){
+    public func setPinPointMenuTapped(closure: @escaping (_ tag: T?)->()){
         self.pinPointMenuTapped = closure
     }
     
-    func changeEnum(from: T, to: T) {
+    public func changeEnum(from: T, to: T) {
         guard let targetbtn = self.menus[from.rawValue] else {
             return
         }
@@ -279,7 +279,7 @@ public class PinPointMenu<T:PinPointMenuBtnKindRequiresEnum> : UIView{
         self.menus[to.rawValue] = targetbtn
     }
     
-    func setButtonEnalbe(target: [T], isEnabled: Bool){
+    public func setButtonEnalbe(target: [T], isEnabled: Bool){
         for t in target{
             self.menus[t.rawValue]?.isEnabled = isEnabled
         }
